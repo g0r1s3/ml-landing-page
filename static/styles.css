@@ -1,0 +1,23 @@
+:root{
+  --F1: #9ECAD6;
+  --F2: #748DAE;
+  --F3: #F5CBCB;
+  --F4: #FFEAEA;
+
+  --bg: color-mix(in oklab, var(--F4) 60%, white);
+  --brand: var(--F2);
+  --brand-2: var(--F1);
+  --accent: var(--F3);
+  --fg: color-mix(in oklab, black 85%, var(--F2) 15%);
+  --btn-bg: var(--brand);
+  --btn-fg: #fff;
+  --btn-bg-hover: color-mix(in oklab, var(--brand) 80%, black 20%);
+}
+
+body{margin:0;font-family:system-ui;background:var(--bg);color:var(--fg)}
+.container{max-width:960px;margin:auto;padding:1rem}
+.btn{padding:.8rem 1.2rem;border-radius:999px;text-decoration:none;font-weight:700;border:1px solid var(--brand)}
+.btn-solid{background:var(--btn-bg);color:var(--btn-fg)}
+.btn-solid:hover{background:var(--btn-bg-hover)}
+.btn-outline{background:transparent;color:var(--fg)}
+.btn-outline:hover{border-color:var(--accent)}

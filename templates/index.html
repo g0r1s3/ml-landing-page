@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Missing Link – Dein Fahrrad, alle Infos</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container brand">
+      <div class="logo-chip"></div>
+      <strong>mis</strong>sing<span class="dot">•</span><strong>link</strong>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Alle Infos zu deinem Fahrrad. <span class="hl">An einem Ort.</span></h1>
+      <p class="lead">Komponenten, Dokumente & Historie sowie Services – übersichtlich und jederzeit griffbereit.</p>
+      <div class="actions">
+        <a class="btn btn-solid" href="#">Zur Demo (bald)</a>
+        <a class="btn btn-outline" href="mailto:hello@example.com">Kontakt</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container foot">
+      <small>© <span id="year"></span> Missing Link</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
