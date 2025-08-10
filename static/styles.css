@@ -1,91 +1,261 @@
 /* ===== Vier zentrale Farben (nur diese ändern) ===== */
-:root{
-  --F1: #9ECAD6;
-  --F2: #748DAE;
-  --F3: #F5CBCB;
-  --F4: #FFEAEA;
+:root {
+    --F1: #9ECAD6;
+    --F2: #748DAE;
+    --F3: #F5CBCB;
+    --F4: #FFEAEA;
 }
 
 /* Abgeleitete Tokens (aus F1–F4 + Schwarz/Weiß) */
-:root{
-  --bg: color-mix(in oklab, var(--F4) 60%, white);
-  --surface: color-mix(in oklab, var(--F4) 30%, white);
-  --brand: var(--F2);
-  --brand-2: var(--F1);
-  --accent: var(--F3);
-  --fg: color-mix(in oklab, black 85%, var(--F2) 15%);
-  --muted: color-mix(in oklab, black 60%, var(--F2) 40%);
-  --hairline: color-mix(in oklab, black 12%, var(--F2) 88%);
+:root {
+    --bg: color-mix(in oklab, var(--F4) 60%, white);
+    --surface: color-mix(in oklab, var(--F4) 30%, white);
+    --brand: var(--F2);
+    --brand-2: var(--F1);
+    --accent: var(--F3);
+    --fg: color-mix(in oklab, black 85%, var(--F2) 15%);
+    --muted: color-mix(in oklab, black 60%, var(--F2) 40%);
+    --hairline: color-mix(in oklab, black 12%, var(--F2) 88%);
 
-  --btn-bg: var(--brand);
-  --btn-fg: #fff;
-  --btn-bg-hover: color-mix(in oklab, var(--brand) 80%, black 20%);
-  --btn-border: color-mix(in oklab, var(--brand) 25%, black 15%, white 60%);
+    --btn-bg: var(--brand);
+    --btn-fg: #fff;
+    --btn-bg-hover: color-mix(in oklab, var(--brand) 80%, black 20%);
+    --btn-border: color-mix(in oklab, var(--brand) 25%, black 15%, white 60%);
 
-  --radius: 16px;
-  --maxw: 960px;
-  --gap: clamp(16px, 3vw, 28px);
+    --radius: 16px;
+    --maxw: 960px;
+    --gap: clamp(16px, 3vw, 28px);
 }
 
 /* Base */
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);
-  font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial}
-.container{max-width:var(--maxw);margin-inline:auto;padding:0 var(--gap)}
-.site-header{position:sticky;top:0;background:color-mix(in oklab, var(--bg) 92%, white 8%);border-bottom:1px solid var(--hairline)}
-.brand{display:flex;align-items:center;gap:.6rem;height:60px}
-.logo-chip{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
-  background: radial-gradient(120% 120% at 20% 20%, var(--brand-2), var(--brand)); color:#fff;
-  border:1px solid color-mix(in oklab, var(--brand) 30%, black 10%, white 60%)}
-.brand .dot{color:var(--accent)}
+* {
+    box-sizing: border-box
+}
 
-.hero{padding: clamp(56px, 10vw, 120px) 0}
-.hero h1{font-size:clamp(2rem, 1.6rem + 2vw, 3rem); margin:.2rem 0}
-.hero .hl{background:linear-gradient(90deg,var(--brand),var(--accent));
-  -webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{color:var(--muted);max-width:60ch}
-.actions{display:flex;gap:12px;margin-top:16px}
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Arial
+}
 
-.notice{margin-top:16px;padding:10px 12px;border-radius:12px;border:1px solid var(--hairline);background:var(--surface)}
-.notice.ok{border-color: color-mix(in oklab, #0b8a2b 30%, var(--hairline) 70%)}
-.notice.warn{border-color: color-mix(in oklab, #b86e00 30%, var(--hairline) 70%)}
+.container {
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding: 0 var(--gap)
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    background: color-mix(in oklab, var(--bg) 92%, white 8%);
+    border-bottom: 1px solid var(--hairline)
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    height: 60px
+}
+
+.logo-chip {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(120% 120% at 20% 20%, var(--brand-2), var(--brand));
+    color: #fff;
+    border: 1px solid color-mix(in oklab, var(--brand) 30%, black 10%, white 60%)
+}
+
+.brand .dot {
+    color: var(--accent)
+}
+
+.hero {
+    padding: clamp(56px, 10vw, 120px) 0
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 1.6rem + 2vw, 3rem);
+    margin: .2rem 0
+}
+
+.hero .hl {
+    background: linear-gradient(90deg, var(--brand), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent
+}
+
+.lead {
+    color: var(--muted);
+    max-width: 60ch
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px
+}
+
+.notice {
+    margin-top: 16px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--hairline);
+    background: var(--surface)
+}
+
+.notice.ok {
+    border-color: color-mix(in oklab, #0b8a2b 30%, var(--hairline) 70%)
+}
+
+.notice.warn {
+    border-color: color-mix(in oklab, #b86e00 30%, var(--hairline) 70%)
+}
 
 /* Features */
-.features{padding: 28px 0}
-.features h2{margin:0 0 8px}
-.grid{display:grid;gap:10px;list-style: none;padding-left:1rem}
-.grid li{position:relative}
-.grid li::marker{content:"• "}
+.features {
+    padding: 28px 0
+}
+
+.features h2 {
+    margin: 0 0 8px
+}
+
+.grid {
+    display: grid;
+    gap: 10px;
+    list-style: none;
+    padding-left: 1rem
+}
+
+.grid li {
+    position: relative
+}
+
+.grid li::marker {
+    content: "• "
+}
 
 /* Kontakt */
-.contact{padding: 28px 0}
-.contact-form{display:grid;grid-template-columns: repeat(2,1fr);gap:12px;background:var(--surface);border:1px solid var(--hairline);border-radius:16px;padding:16px}
-.contact-form label{display:grid;gap:6px}
-.contact-form .full{grid-column:1/-1}
-.contact-form input,.contact-form textarea{
-  width:100%;padding:12px;border-radius:12px;border:1px solid color-mix(in oklab, black 15%, white 85%);background:#fff;color:inherit
+.contact {
+    padding: 28px 0
 }
-.contact-form .hp{position:absolute;left:-9999px;visibility:hidden} /* Honeypot verstecken */
-.hint{grid-column:1/-1;color:var(--muted);margin:0}
+
+.contact-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 16px;
+    padding: 16px
+}
+
+.contact-form label {
+    display: grid;
+    gap: 6px
+}
+
+.contact-form .full {
+    grid-column: 1/-1
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid color-mix(in oklab, black 15%, white 85%);
+    background: #fff;
+    color: inherit
+}
+
+.contact-form .hp {
+    position: absolute;
+    left: -9999px;
+    visibility: hidden
+}
+
+/* Honeypot verstecken */
+.hint {
+    grid-column: 1/-1;
+    color: var(--muted);
+    margin: 0
+}
 
 /* Buttons (einheitlich) */
-.btn{
-  --bpad: 12px 18px;
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  padding:var(--bpad);border-radius:999px;text-decoration:none;cursor:pointer;
-  border:1px solid var(--btn-border);font:inherit;font-weight:700;letter-spacing:.01em;
-  transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+.btn {
+    --bpad: 12px 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: var(--bpad);
+    border-radius: 999px;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid var(--btn-border);
+    font: inherit;
+    font-weight: 700;
+    letter-spacing: .01em;
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease;
 }
-.btn-solid{background:var(--btn-bg);color:var(--btn-fg);border-color:transparent}
-.btn-solid:hover{background:var(--btn-bg-hover)}
-.btn-outline{background:transparent;color:inherit}
-.btn-outline:hover{border-color: color-mix(in oklab, var(--brand) 40%, black 10%, white 50%)}
+
+.btn-solid {
+    background: var(--btn-bg);
+    color: var(--btn-fg);
+    border-color: transparent
+}
+
+.btn-solid:hover {
+    background: var(--btn-bg-hover)
+}
+
+.btn-outline {
+    background: transparent;
+    color: inherit
+}
+
+.btn-outline:hover {
+    border-color: color-mix(in oklab, var(--brand) 40%, black 10%, white 50%)
+}
 
 /* Footer */
-.site-footer{padding:28px 0;background:color-mix(in oklab,var(--F3) 30%, white)}
-.foot{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.site-footer {
+    padding: 28px 0;
+    background: color-mix(in oklab, var(--F3) 30%, white)
+}
+
+.foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap
+}
 
 /* Responsive */
-@media (max-width: 720px){
-  .contact-form{grid-template-columns:1fr}
+@media (max-width: 720px) {
+    .contact-form {
+        grid-template-columns: 1fr
+    }
+}
+
+.impressum {
+    padding: 28px 0;
+    line-height: 1.6;
+}
+
+.impressum a {
+    color: var(--brand);
+    text-decoration: none;
+}
+
+.impressum a:hover {
+    text-decoration: underline;
 }

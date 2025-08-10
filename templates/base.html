@@ -1,32 +1,41 @@
 <!doctype html>
 <html lang="de">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{% block title %}Missing Link – Dein Fahrrad, alle Infos{% endblock %}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-  <meta name="description" content="Missing Link bündelt die wichtigsten Infos zu deinem Fahrrad – Komponenten, Dokumente & Historie sowie Services.">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{% block title %}Missing Link – Dein Fahrrad, alle Infos{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta name="description"
+        content="Missing Link bündelt die wichtigsten Infos zu deinem Fahrrad – Komponenten, Dokumente & Historie sowie Services.">
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container brand">
-      <div class="logo-chip" aria-hidden="true"></div>
-      <strong>mis</strong>sing<span class="dot">•</span><strong>link</strong>
-    </div>
-  </header>
+    <header class="site-header">
+        <div class="container brand">
+            <div class="logo-chip" aria-hidden="true"></div>
+            <strong>mis</strong>sing<span class="dot">•</span><strong>link</strong>
+        </div>
+    </header>
 
-  <main class="container">
-    {% block content %}{% endblock %}
-  </main>
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
 
-  <footer class="site-footer">
-    <div class="container foot">
-      <small>© <span id="year"></span> Missing Link</small>
-    </div>
-  </footer>
+    <footer class="site-footer">
+        <div class="container foot">
+            <small>© <span id="year"></span> Missing Link</small>
+        </div>
+        <small>
+            © <span id="year"></span> Missing Link ·
+            <a href="{{ url_for('impressum') }}">Impressum</a>
+        </small>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
+
 </html>

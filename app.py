@@ -22,6 +22,11 @@ def index():
     status = request.args.get("s")  # "ok" | "invalid" | "spam"
     return render_template("index.html", status=status)
 
+@app.get("/impressum")
+def impressum():
+    return render_template("impressum.html")
+
+
 @app.post("/contact")
 def contact():
     # Einfache Validierung + Honeypot
