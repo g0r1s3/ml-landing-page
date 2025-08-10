@@ -1,38 +1,57 @@
-<!doctype html>
-<html lang="de">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Missing Link – Dein Fahrrad, alle Infos</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
-  <header class="site-header">
-    <div class="container brand">
-      <div class="logo-chip"></div>
-      <strong>mis</strong>sing<span class="dot">•</span><strong>link</strong>
-    </div>
-  </header>
+{% extends "base.html" %}
+{% block title %}Missing Link – Alles zu deinem Fahrrad, an einem Ort{% endblock %}
 
-  <main class="container">
-    <section class="hero">
-      <h1>Alle Infos zu deinem Fahrrad. <span class="hl">An einem Ort.</span></h1>
-      <p class="lead">Komponenten, Dokumente & Historie sowie Services – übersichtlich und jederzeit griffbereit.</p>
-      <div class="actions">
-        <a class="btn btn-solid" href="#">Zur Demo (bald)</a>
-        <a class="btn btn-outline" href="mailto:hello@example.com">Kontakt</a>
-      </div>
-    </section>
-  </main>
+{% block content %}
+<section class="hero">
+  <h1>Alle Infos zu deinem Fahrrad. <span class="hl">An einem Ort.</span></h1>
+  <p class="lead">
+    Komponenten, Dokumente &amp; Historie sowie Services – übersichtlich, zentral und bald als Demo erlebbar.
+  </p>
+  <div class="actions">
+    <a class="btn btn-solid" href="#" aria-disabled="true">Zur Demo (bald)</a>
+    <a class="btn btn-outline" href="#kontakt">Kontakt</a>
+  </div>
 
-  <footer class="site-footer">
-    <div class="container foot">
-      <small>© <span id="year"></span> Missing Link</small>
-    </div>
-  </footer>
+  {% if status == "ok" %}
+    <div class="notice ok">Danke! Deine Nachricht wurde gespeichert.</div>
+  {% elif status == "invalid" %}
+    <div class="notice warn">Bitte Name, gültige E‑Mail und eine Nachricht (min. 5 Zeichen) angeben.</div>
+  {% elif status == "spam" %}
+    <div class="notice warn">Ups, etwas stimmt nicht. Versuch’s bitte erneut.</div>
+  {% endif %}
+</section>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+<section class="features">
+  <h2>Wichtigste Features</h2>
+  <ul class="grid">
+    <li><strong>Auf einen Blick:</strong> Hersteller, Modell, Laufleistung, Leasingende.</li>
+    <li><strong>Komponenten:</strong> Schaltung, Motor, Akku, Kette, Kassette &amp; Ersatzteile.</li>
+    <li><strong>Dokumente &amp; Historie:</strong> Rechnungen, Reparaturen, Verträge, Handbücher.</li>
+    <li><strong>Services:</strong> Werkstatt buchen, KVA bestätigen, Versicherung finden.</li>
+  </ul>
+</section>
+
+<section id="kontakt" class="contact">
+  <h2>Kontakt</h2>
+  <p>Fragen, Feedback oder Interesse an der frühen Demo? Schreib uns!</p>
+  <form method="post" action="{{ url_for('contact') }}" class="contact-form">
+    <label> Name
+      <input type="text" name="name" required autocomplete="name">
+    </label>
+    <label> E‑Mail
+      <input type="email" name="email" required autocomplete="email">
+    </label>
+    <label class="full"> Nachricht
+      <textarea name="message" rows="4" required minlength="5"></textarea>
+    </label>
+
+    <!-- Honeypot (unsichtbar für Menschen) -->
+    <label class="hp">Website
+      <input type="text" name="website" tabindex="-1" autocomplete="off">
+    </label>
+
+    <button class="btn btn-solid" type="submit">Nachricht senden</button>
+    <p class="hint">Hinweis: Nachrichten werden lokal auf dem Server als JSON gespeichert.</p>
+  </form>
+</section>
+{% endblock %}
